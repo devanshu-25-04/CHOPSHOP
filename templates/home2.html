@@ -1,0 +1,251 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+rel="stylesheet"
+/>
+<style>
+.card-title{
+  font-size: 1rem;
+  color:black;
+}
+.card{
+  border-color: red;
+}
+
+.card-body {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: url("{% static 'homepic3.png' %}") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: auto;
+  top:10px;
+  border-color: aqua;
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 300px;
+    display: block;
+    margin-bottom: 20px;
+    padding-left: 100px;
+    border-color: red;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  width: 300px;
+  height: 290px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+.btn-colour{
+  background-color: #90f7c3;
+}
+
+.btn btn-primary btn-lg active{
+  background: #90f7c3;
+}
+/* Remove extra left and right margins, due to padding in columns */
+  /* .row {  /*margin: auto; */
+  /* width: 50%; */
+  /* padding: 10px;
+  top:30px;
+}  */
+
+/* Clear floats after the columns */
+/* .row:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+.custom-button {
+  background-color: #E91E63;
+  color: #fff; /* Set text color to white for contrast */
+  padding: 10px 20px; /* Set padding for the button */
+  border: none; /* Remove the default button border */
+  border-radius: 5px; /* Add rounded corners */
+  font-size: 16px; /* Set font size */
+  font-weight: bold; /* Set font weight */
+  text-transform: uppercase; /* Convert text to uppercase */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  text-decoration: none; /* Remove underline on link */
+}
+
+.custom-button:hover {
+  opacity: 0.8; /* Reduce opacity on hover for visual feedback */
+}
+.navbar {
+
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: black;
+   /* ensure the navbar is on top of other elements */
+  /* other styles */
+}
+.logo{
+  margin-right: 10px;
+}
+</style>
+  </head>
+  <body>
+    <section>
+      <nav class="navbar navbar-expand-lg navbar-dark ">
+        <div class="container-fluid">
+          <img src="{% static 'logo.png' %}" alt="Chopshop logo" height="40"  class="logo d-inline-block align-text-top">
+          <a class="navbar-brand" href="/home2">CHOPSHOP</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/home2">Home</a>
+              <a class="nav-link" href="/about2">About</a>
+              <a class="nav-link" href="/project2">Project</a>
+              <a class="nav-link" href="/appointmentcheck">Appointment</a>
+            </div>
+          </div>
+
+          <ul class="navbar-nav d-flex flex-row me-1">
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="/contact"><i class="fas fa-envelope mx-1"></i> Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i> Profile </a>
+                <!-- Dropdown menu -->
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="/home2">My account</a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="/">Log out</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        </div>
+      </nav>
+    </section>
+
+    <section>
+       <div class="row">
+        <div class="column">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+             <span> <h4>Shop Menu</h4>
+              <p class="card-text">To book a salon service appointment</p></span>
+              <a href="/shopmenu" class="custom-button">Go</a>
+              {% comment %} <a href="/shopmenu" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Go</a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h4>Doctor Appointment</h4>
+              <p class="card-text">Book an appointment with our in house dermatologist for consulting</p>
+              <a href="/drappoint" class="custom-button">Go</a>
+              {% comment %} <a href="/drappoint" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" background="#E91E63">Go</a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h4>Shopkeeper Registration</h4>
+              <p class="card-text">Want to post your business online? Register Here!!</p>
+              <a href="/EmployerReg" class="custom-button">Go</a>
+              {% comment %} <a href="/EmployerReg" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Go</a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h4>Product Recommendation</h4>
+              <p class="card-text">Have any problems with your hair? Take a survey and find products that can help</p>
+              <a href="/product" class="custom-button">Go</a>
+              {% comment %} <a href="/product" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Go</a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+></script>
+  </body>
+</html>

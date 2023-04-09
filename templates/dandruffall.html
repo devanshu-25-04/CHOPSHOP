@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Page</title>
+	<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+rel="stylesheet"
+/>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #E91E63;
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		.product-container {
+			position: fixed;
+			top: -100%;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			width: 90%;
+			height: 60%;
+			background-color: #fff;
+			border-radius: 20px;
+			box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
+			overflow: hidden;
+			z-index: 9999;
+			transition: 1s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-sizing: border-box;
+		}
+
+		.product-img {
+			flex: 1;
+
+			width: 150px;
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			padding: 10%;
+			box-sizing: border-box;
+		}
+
+		.product-details {
+			flex: 1;
+			height: 100%;
+			padding: 50px;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		.product-details h2 {
+			font-size: 36px;
+			margin: 0;
+			margin-bottom: 20px;
+			color: #4a4a4a;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.product-details p {
+			font-size: 20px;
+			line-height: 1.5;
+			margin: 20px 0;
+			color: #4a4a4a;
+		}
+
+		.product-details h3 {
+			font-size: 28px;
+			margin: 0;
+			margin-top: 20px;
+			color: #f00;
+			font-weight: 600;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.show {
+			top: 0;
+		}
+		.go-back {
+			position: fixed;
+			top: 70px;
+			left: 10px;
+			padding: 10px;
+			background-color: #4a4a4a;
+			color: #fff;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		.go-back:hover {
+			background-color: #333;
+		}
+		.navbar {
+			position: fixed;
+			top: 0;
+			margin-bottom: 10px;
+			width: 100%;
+			z-index: 9999;
+			background-color: black;
+			 /* ensure the navbar is on top of other elements */
+			/* other styles */
+		  }
+		  .logo{
+			margin-right: 10px;
+		  }
+	</style>
+</head>
+<body>
+	<section>
+		<nav class="navbar navbar-expand-lg navbar-dark">
+		  <div class="container-fluid">
+			<img src="{% static 'logo.png' %}" alt="Chopshop logo" height="40"  class="logo d-inline-block align-text-top">
+			<a class="navbar-brand" href="/home2">CHOPSHOP</a>
+			<button
+			  class="navbar-toggler"
+			  type="button"
+			  data-mdb-toggle="collapse"
+			  data-mdb-target="#navbarNavAltMarkup"
+			  aria-controls="navbarNavAltMarkup"
+			  aria-expanded="false"
+			  aria-label="Toggle navigation"
+			>
+			  <i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  <div class="navbar-nav">
+				<a class="nav-link" aria-current="page" href="/home2">Home</a>
+				<a class="nav-link" href="/about2">About</a>
+				<a class="nav-link" href="/project2">Project</a>
+			  </div>
+			</div>
+			<ul class="navbar-nav d-flex flex-row me-1">
+			  <li class="nav-item me-3 me-lg-0">
+				  <a class="nav-link text-white" href="/contact"><i class="fas fa-envelope mx-1"></i> Contact</a>
+			  </li>
+			  <li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+				  data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i> Profile </a>
+				  <!-- Dropdown menu -->
+				  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+					  <li>
+						  <a class="dropdown-item" href="/login">Login</a>
+					  </li>
+  
+					  <li>
+						  <a class="dropdown-item" href="/signup">Sign Up</a>
+					  </li>
+				  </ul>
+			  </li>
+		  </ul>
+		  </div>
+		</nav>
+	  </section>
+	<div class="product-container">
+		<div class="product-img"><img src="{% static 'pic6.png' %}"></div>
+		<div class="product-details">
+			<h4>Hair Regrowth Treatment Kit,Patuá Anti-Grey Hair Serum</h4>
+			<p>Reduces Premature Greying and For Hair Fall Control & Hair Growth  </p>
+			<p>Suitable for: All </p>
+			<h5>Price: ₹2306.00</h5>
+			<button class="go-back" onclick="history.back()">Go back</button>
+			<h4 href="https://pilgrim.page.link/XtCP">link</h4>
+		</div>
+		
+	</div>
+	<script>
+		window.onload = function() {
+			document.querySelector('.product-container').classList.add('show');
+		};
+	</script>
+</body>
+</html>

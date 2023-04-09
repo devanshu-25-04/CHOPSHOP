@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hair Health Survey</title>
+  <meta charset="UTF-8">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: url("{% static 'salon6.jpg' %}") no-repeat center center fixed;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    
+    h1 {
+      color: white;
+      margin-bottom: 10px;
+    }
+    
+    form {
+      background: linear-gradient(#fff, #eee);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      margin: 30px auto;
+      padding: 20px;
+      position: relative;
+      text-align: left;
+      width: 80%;
+      max-width: 500px;
+    }
+    
+    form label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    form input[type="radio"] {
+      display: none;
+    }
+    
+    form label span {
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      height: 16px;
+      margin-right: 8px;
+      position: relative;
+      top: 3px;
+      width: 16px;
+    }
+    
+    form input[type="radio"]:checked + label span {
+      background: #E91E63;
+      border-color: #E91E63;
+      color: #fff;
+    }
+    
+    form label span:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      background: #fff;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      z-index: -1;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    form input[type="radio"]:checked + label span:before {
+      opacity: 1;
+    }
+    
+    form button {
+      background: #E91E63;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-size: 16px;
+      margin: 30px auto;
+      padding: 10px 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    form button:hover {
+      background: #4cbb6e;
+    }
+    
+    form .back-btn {
+      background: #333;
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    form .back-btn:hover {
+      background: #555;
+    }
+    
+    form .question {
+      display: block;
+    }
+    
+    form .question.active {
+      display: block;
+      font-family: "Ink Free", Ink Free;
+    }
+    
+    form .question h7 {
+      margin-top: 0;
+      font-family: "Ink Free", Ink Free;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      margin-top: 50px;
+      font-family: "Georgia Pro", Georgia Pro;
+      background: black;
+      color: white;
+    }
+    .navbar {
+			position: fixed;
+			top: 0;
+			margin-bottom: 10px;
+			width: 100%;
+			z-index: 9999;
+			background-color: black;
+			 /* ensure the navbar is on top of other elements */
+			/* other styles */
+		  }
+		  .logo{
+			margin-right: 10px;
+		  }
+  </style>
+</head>
+<body>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <img src="{% static 'logo.png' %}" alt="Chopshop logo" height="40"  class="logo d-inline-block align-text-top">
+        <a class="navbar-brand" href="/home2">CHOPSHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/home2">Home</a>
+            <a class="nav-link" href="/about2">About</a>
+            <a class="nav-link" href="/project2">Project</a>
+            
+          </div>
+        </div>
+
+        <ul class="navbar-nav d-flex flex-row me-1">
+          <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link text-white" href="/contact"><i class="fas fa-envelope mx-1"></i> Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+              data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i> Profile </a>
+              <!-- Dropdown menu -->
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li>
+                      <a class="dropdown-item" href="/login">Login</a>
+                  </li>
+
+                  <li>
+                      <a class="dropdown-item" href="/signup">Sign Up</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+
+      </div>
+    </nav>
+  </section>
+  <div class="header">
+    <h1>Hair Health Survey</h1>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div class="question" id="question1">
+      <h7>Have you noticed an increase in the amount of hair that falls out when you brush or wash your hair?</h7>
+      <input type="radio" id="q1yes" name="q1" value="yes">
+      <label for="q1yes"><span></span>Yes</label>
+      <input type="radio" id="q1no" name="q1" value="no">
+      <label for="q1no"><span></span>No</label>
+    </div>
+
+  <div class="question" id="question2">
+    <h7>Have you noticed thinning or bald patches on your scalp?</h7>
+    <input type="radio" id="q2yes" name="q2" value="yes">
+    <label for="q2yes"><span></span>Yes</label>
+    <input type="radio" id="q2no" name="q2" value="no">
+    <label for="q2no"><span></span>No</label>
+  </div>
+  
+  <div class="question" id="question3">
+    <h7>Have you noticed more hair on your pillow or on your clothes than usual?</h7>
+    <input type="radio" id="q3yes" name="q3" value="yes">
+    <label for="q3yes"><span></span>Yes</label>
+    <input type="radio" id="q3no" name="q3" value="no">
+    <label for="q3no"><span></span>No</label>
+  </div>
+  
+  <div class="question" id="question4">
+    <h7>Have you noticed a decrease in the overall volume of your hair?</h7>
+    <input type="radio" id="q4yes" name="q4" value="yes">
+    <label for="q4yes"><span></span>Yes</label>
+    <input type="radio" id="q4no" name="q4" value="no">
+    <label for="q4no"><span></span>No</label>
+  </div>
+  
+  <div class="question" id="question5">
+    <h7>Have you noticed any hair strands that are grey or white in color?</h7>
+    <input type="radio" id="q5yes" name="q5" value="yes">
+    <label for="q5yes"><span></span>Yes</label>
+    <input type="radio" id="q5no" name="q5" value="no">
+    <label for="q5no"><span></span>No</label>
+  </div>
+  
+  <div class="question" id="question6">
+    <h7>Have you observed an increase in the number of grey or white hairs on your head over time?</h7>
+    <input type="radio" id="q6yes" name="q6" value="yes">
+    <label for="q6yes"><span></span>Yes</label>
+    <input type="radio" id="q6no" name="q6" value="no">
+    <label for="q6no"><span></span>No</label>
+  </div>
+
+  <div class="question" id="question7">
+    <h7>Have you noticed any changes in the color of your hair from your natural hair color?</h7>
+    <input type="radio" id="q7yes" name="q7" value="yes">
+    <label for="q7yes"><span></span>Yes</label>
+    <input type="radio" id="q7no" name="q7" value="no">
+    <label for="q7no"><span></span>No</label>
+  </div>
+
+  <div class="question" id="question8">
+    <h7>Have you ever dyed your hair to cover up grey hairs? </h7>
+    <input type="radio" id="q8yes" name="q8" value="yes">
+    <label for="q8yes"><span></span>Yes</label>
+    <input type="radio" id="q8no" name="q8" value="no">
+    <label for="q8no"><span></span>No</label>
+  </div>
+
+  <div class="question" id="question9">
+    <h7>Have other people commented on your hair looking grey or white? </h7>
+    <input type="radio" id="q9yes" name="q9" value="yes">
+    <label for="q9yes"><span></span>Yes</label>
+    <input type="radio" id="q9no" name="q9" value="no">
+    <label for="q9no"><span></span>No</label>
+  </div>
+
+  <div class="question" id="question10">
+    <h7>Do you notice small, white flakes on your scalp or in your hair? </h7>
+    <input type="radio" id="q10yes" name="q10" value="yes">
+    <label for="q10yes"><span></span>Yes</label>
+    <input type="radio" id="q10no" name="q10" value="no">
+    <label for="q10no"><span></span>No</label>
+  </div>
+
+  <div class="question" id="question11">
+    <h7>Does your scalp feel itchy or irritated? </h7>
+    <input type="radio" id="q11yes" name="q11" value="yes">
+    <label for="q11yes"><span></span>Yes</label>
+    <input type="radio" id="q11no" name="q11" value="no">
+    <label for="q11no"><span></span>No</label>
+  </div>
+
+  <div class="question" id="question12">
+    <h7>Does your hair appear oily or greasy? </h7>
+    <input type="radio" id="q12yes" name="q12" value="yes">
+    <label for="q12yes"><span></span>Yes</label>
+    <input type="radio" id="q12no" name="q12" value="no">
+    <label for="q12no"><span></span>No</label>
+  </div>
+
+  <button type="submit" id="submitBtn">Submit</button>
+
+</form>
+</body>
+</html>
+  

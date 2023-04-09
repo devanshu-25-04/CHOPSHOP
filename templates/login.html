@@ -1,0 +1,284 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/2b070e02a1.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+rel="stylesheet"
+/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+ margin: 0;
+ padding: 0;
+ font-family: 'Montserrat', sans-serif;
+}
+body{
+ height: 100vh;
+ width: 100%;
+ background: url("{% static 'homepic.png' %}") no-repeat center center fixed;
+ background-size: cover;
+}
+.container{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ height: 100%;
+ width: 100%;
+ background-color: transparent;
+}
+.login-box{
+ background: #FFF;
+ padding: 100px 100px 50px 100px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ width: 600px; /* changed from 400px */
+ font-size: 14px;
+ border-radius: 5px;
+}
+.user-icon{
+ background: #E91E63;
+ border-radius: 50%;
+ width: 100px;
+ height: 100px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: absolute;
+ top: -50px;
+}
+.user-icon i{
+ font-size: 40px;
+ color: #FFF;
+}
+.login{
+ width: 100%;
+}
+.form-group{
+ margin-bottom: 20px;
+ display: fle;
+ flex-direction: column;
+ width: 100%;
+}
+input[type="text"].form-control, input[type="password"].form-control{
+ font-size: 16px;
+ outline: none;
+ width: calc(100% - 5px);
+ border: 2px solid #CCC;
+ padding: 16px;
+ border-radius: 2px;
+ transition: all 0.3s ease;
+}
+input[type="text"].form-control:hover, input[type="password"].form-control:hover{
+ border: 2px solid #F8BBD0;
+}
+input[type="text"].form-control:focus, input[type="password"].form-control:focus{
+ border: 2px solid #F06292;
+}
+input[type="text"].form-control:active, input[type="password"].form-control:active{
+ border: 2px solid #F06292;
+}
+label{
+ display: flex;
+ align-items: center;
+ cursor: pointer;
+}
+label input[type="checkbox"]{
+ width: 20px;
+ height: 20px;
+ margin-right: 10px;
+ cursor: pointer;
+}
+button{
+ outline: none;
+ background: #E91E63;
+ color: #FFF;
+ padding: 16px;
+ display: block;
+ width: 100%;
+ border:none;
+ text-transform: uppercase;
+ font-size: 16px;
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+button:hover{
+ box-shadow: 5px 5px 5px #CCC;
+}
+a{
+ color: #42A5F5;
+}
+.serparater {
+ width: 100%;
+ border-top: 1px solid #F1F1F1;
+ border-bottom: 1px solid #F1F1F1;
+ padding: 10px 0;
+ text-align: center;
+ margin: 20px 0;
+ font-size: 12px;
+}
+.social-login{
+ display: flex;
+ width: 100%;
+ justify-content: center;
+}
+.social-login a{
+ display: inline-block;
+ background: #F06292;
+ color: #FFF;
+ padding: 16px;
+ margin-right: 20px;
+ text-decoration: none;
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+.social-login a:hover{
+ background: #E91E63;
+ box-shadow: 5px 5px 5px #CCC;
+}
+.social-login a i{
+ color: #FFF;
+ margin-right: 10px;
+}
+.btn{
+  background-color: #E91E63;
+}
+.btn:hover{
+  background-color: #E91E63;
+}
+.btn:active{
+  background-color: #E91E63;
+}
+.text-primary-50{
+  color: #E91E63;
+}
+.text-primary-50:hover{
+  color: #E91E63;
+}
+.text-primary-50:active{
+  color: #E91E63;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: black;
+   /* ensure the navbar is on top of other elements */
+  /* other styles */
+}
+.logo{
+  margin-right: 10px;
+}
+</style>
+  </head>
+  <body>
+    <section>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <img src="{% static 'logo.png' %}" alt="Chopshop logo" height="40"  class="logo d-inline-block align-text-top">
+              <a class="navbar-brand" href="/">CHOPSHOP</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+                  <a class="nav-link" href="/about">About</a>
+                  <a class="nav-link" href="/project">Project</a>
+                </div>
+              </div>
+              <ul class="navbar-nav d-flex flex-row me-1">
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link text-white" href="/contact"><i class="fas fa-envelope mx-1"></i> Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                    data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i> Profile </a>
+                    <!-- Dropdown menu -->
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="/login">Login</a>
+                        </li>
+    
+                        <li>
+                            <a class="dropdown-item" href="/signup">Sign Up</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+          </nav>
+    </section>
+    <section>
+      <div class="container">
+         <div class="login-box">
+           <div class="user-icon">
+             <i class="far fa-user"></i>
+             </div>
+            <form action="" method="post" novalidate class="shadow p-5">
+                {% if messages %}
+                {% for message in messages%}
+                <p {%if message.tags%} class="alert alert-{{message.tags}} mb-5" {%endif%}> {{message}} </p>
+                {% endfor %}{% endif %}
+                {% csrf_token %}
+                {% for fm in form %}
+
+                <div class="form-group">
+                    {{fm.label_tag}} {{fm}}
+                </div>
+
+                {% endfor %}
+                <div class="d-flex justify-content-center mx-4 my-4 mb-3 mb-lg-4">
+                  <input type="submit" value="login" class="btn btn-primary btn-lg">
+                </div>
+
+                <br>
+                <p class="mb-0 text-center">Don't have an account? <a href="{% url 'signup' %}" class="text-primary-50 fw-bold">Sign Up</a>
+                </p>
+                {% if form.non_field_errors %}
+
+                {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+                {% endfor %}
+                {% endif %}
+
+            </form>
+         </div>
+       </div>
+    </section>
+    <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+></script>
+  </body>
+</html>

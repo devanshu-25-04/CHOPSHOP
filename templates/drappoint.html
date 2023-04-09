@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Doctor's Appointment</title>
+    <link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+rel="stylesheet"
+/>
+    <style>
+      
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: url("{% static 'salon4.jpg' %}") no-repeat center center fixed;
+      }
+      form div {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form label {
+  flex-basis: 30%;
+  font-weight: bold;
+}
+
+form input {
+  flex-basis: 65%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+      #container {
+        background: #f0f0f0;
+        width: 50%;
+        margin: 50px auto;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px #d0d0d0;
+        display: flex;
+        margin-top: 100pxpx;
+      }
+      
+      #left {
+        background: #E91E63;
+        width: 40%;
+        border-radius: 10px 0 0 10px;
+        color: #f0f0f0;
+        padding: 30px;
+      }
+      
+      #left h2 {
+        font-weight: bold;
+        margin-top: 0;
+      }
+      
+      #left p {
+        margin: 0;
+        line-height: 1.5;
+      }
+      
+      #right {
+        width: 60%;
+        padding: 30px;
+      }
+      
+      #right h2 {
+        font-weight: bold;
+        margin-top: 0;
+      }
+      
+      #timing {
+        margin-bottom: 20px;
+      }
+      
+      #timing select {
+        padding: 10px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+
+      
+      @media(max-width: 768px) {
+        #container {
+          flex-direction: column;
+          width: 90%;
+        }
+        
+        #left {
+          width: 100%;
+          border-radius: 10px 10px 0 0;
+        }
+        
+        #right {
+          width: 100%;
+          border-radius: 0 0 10px 10px;
+        }
+      }
+      .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      height: 100px;
+    }
+    #book-btn {
+  background: #E91E63;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+#book-btn:hover {
+  background: #90f7c3;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+}
+.navbar {
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: black;
+   /* ensure the navbar is on top of other elements */
+  /* other styles */
+}
+.logo{
+  margin-right: 10px;
+}     
+    </style>
+  </head>
+  
+  <body>
+    <section>
+      <nav class="navbar navbar-expand-lg navbar-dark ">
+        <div class="container-fluid">
+          <img src="{% static 'logo.png' %}" alt="Chopshop logo" height="40"  class="logo d-inline-block align-text-top">
+          <a class="navbar-brand" href="/home2">CHOPSHOP</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="/home2">Home</a>
+              <a class="nav-link" href="/about2">About</a>
+              <a class="nav-link" href="/project2">Project</a>
+              
+            </div>
+          </div>
+
+          <ul class="navbar-nav d-flex flex-row me-1">
+            <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link text-white" href="/contact"><i class="fas fa-envelope mx-1"></i> Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i> Profile </a>
+                <!-- Dropdown menu -->
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="/login">Login</a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="/signup">Sign Up</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        </div>
+      </nav>
+    </section>
+    
+  {% for msg in messages %}
+  <div class="alert alert-success">
+    <strong>Success!</strong> {{msg}}
+  </div>
+  {% endfor %}  
+  
+    <div id="container">
+      <div id="left">
+        <h2>Name:</h2>
+        <p>Address:</p>
+        <p>Line1</p>
+        <p>Line2</p>
+      </div>
+      
+      <div id="right">
+        <h2>Doctor's Appointment</h2>
+      
+        <form method="post">
+          {% csrf_token %}
+          <div id="timing">
+            <label for="time">Select a time:</label>
+            <select id="time" name="time">
+              <option value="9:00am">9:00 AM</option>
+              <option value="10:00am">10:00 AM</option>
+              <option value="11:00am">11:00 AM</option>
+              <option value="12:00pm">12:00 PM</option>
+              <option value="13:00pm">13:00 PM</option>
+              <option value="14:00pm">14:00 PM</option>
+              <option value="15:00pm">15:00 PM</option>
+              <option value="16:00pm">16:00 PM</option>
+              <option value="17:00pm">17:00 PM</option>
+            </select>
+          </div>
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <button id="book-btn" type="submit">Book Now</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

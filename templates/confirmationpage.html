@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation</title>
+  <link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+rel="stylesheet"
+/>
+  <style>
+    /* Styles for the page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url("{% static 'salon.jpg' %}") no-repeat center center fixed;
+      background-size: cover;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+  width: 400px;
+  height: 350px;
+  background: linear-gradient(to bottom, #f6d8d8, #e6b3b3);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  position: relative;
+  animation-name: drop-down;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+    @keyframes drop-down {
+  from {
+    top: -300px;
+  }
+  to {
+    top: 0px;
+  }
+  }
+    h1 {
+      margin-top: 0;
+      color: #333;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    p {
+      margin: 0;
+      color: #333;
+    }
+    .order-details {
+      margin-top: 20px;
+    }
+    .order-details h3 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .order-details table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .order-details table th,
+    .order-details table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .order-details table th {
+      background-color: #f5f5f5;
+    }
+    .logo{
+      margin-right: 10px;
+    }
+    #confirm-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+    h1{
+      text-align: center;
+      margin-top: 10px;
+      font-family: Open Sans;
+    }
+
+    .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: black;
+   /* ensure the navbar is on top of other elements */
+  /* other styles */
+}
+.go-home-button {
+  display: block;
+  background-color: #E91E63; /* Green background */
+  margin-left: 110px;
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 10px 20px; /* Add some padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make it an inline-block element */
+  font-size: 16px; /* Set font size */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Add pointer cursor on hover */
+}
+
+.go-home-button:hover {
+  background-color: #3e8e41; /* Dark green background on hover */
+  margin-top: 10px; 
+}
+  </style>
+</head>
+<body>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="container-fluid">
+        <img src="{% static 'logo.png' %}" alt="Chopshop logo" height="40"  class="logo d-inline-block align-text-top">
+        <a class="navbar-brand" href="/home2">CHOPSHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" aria-current="page" href="/home2">Home</a>
+            <a class="nav-link" href="/about2">About</a>
+            <a class="nav-link" href="/project2">Project</a>
+            
+          </div>
+        </div>
+
+        <ul class="navbar-nav d-flex flex-row me-1">
+          <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link text-white" href="/contact"><i class="fas fa-envelope mx-1"></i> Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+              data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i> Profile </a>
+              <!-- Dropdown menu -->
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li>
+                      <a class="dropdown-item" href="/login">Login</a>
+                  </li>
+
+                  <li>
+                      <a class="dropdown-item" href="/signup">Sign Up</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+
+      </div>
+    </nav>
+  </section>
+  <div class="container">
+    <div class="box">
+    <h1>Your Appointment has been booked. Kindly check your email for confirmation.</h1>
+    <a href="/" class="btn go-home-button">Go Home</a>
+    </div>
+    
+  </div>
+  
+</body>
+</html>
