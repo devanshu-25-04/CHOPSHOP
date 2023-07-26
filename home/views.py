@@ -55,7 +55,7 @@ def contact_mail(name,email,msg):
 
 def send_mail(id,msg):
     print(id)
-    from_id='redrondoofdeath@gmail.com'
+    from_id='traskgaming765@gmail.com'
     conn =smtplib.SMTP('smtp.gmail.com',587)  
     type(conn)  
     conn.ehlo()  
@@ -67,7 +67,7 @@ def send_mail(id,msg):
     text=msg
     msg = MIMEText(text, "plain")
     message.attach(msg)
-    conn.login(from_id,'bapeockmyuxkvnnq')  
+    conn.login(from_id,'wtrpodlctykjhqyj')  
     conn.sendmail(from_id,id,message.as_string())  
     conn.quit()
 
@@ -137,7 +137,7 @@ def EmployerReg(request):
             msg1="user already exists!!"  
         print(id)
         msg = f'Hi {name}, thank you for contacting us. Your Salon was added to the site.'
-        from_id='redrondoofdeath@gmail.com'
+        from_id='traskgaming765@gmail.com'
         conn =smtplib.SMTP('smtp.gmail.com',587)  
         type(conn)  
         conn.ehlo()  
@@ -149,7 +149,7 @@ def EmployerReg(request):
         text=msg
         msg = MIMEText(text, "plain")
         message.attach(msg)
-        conn.login(from_id,'bapeockmyuxkvnnq')  
+        conn.login(from_id,'wtrpodlctykjhqyj')  
         conn.sendmail(from_id,email,message.as_string())  
         conn.quit()
         messages.success(request, msg1)
@@ -210,7 +210,7 @@ def shopmenu(request):
         msg1="Successful" 
         print(id)
         msg = f'Hi {name}, Your Booking has been Confirmed'
-        from_id='redrondoofdeath@gmail.com'
+        from_id='traskgaming765@gmail.com'
         conn =smtplib.SMTP('smtp.gmail.com',587)  
         type(conn)  
         conn.ehlo()  
@@ -222,7 +222,7 @@ def shopmenu(request):
         text=msg
         msg = MIMEText(text, "plain")
         message.attach(msg)
-        conn.login(from_id,'bapeockmyuxkvnnq')  
+        conn.login(from_id,'wtrpodlctykjhqyj')  
         conn.sendmail(from_id,email,message.as_string())  
         conn.quit()
         messages.success(request, msg1)
@@ -261,7 +261,7 @@ def drappoint(request):
 def send_mail_drappoint(name,id):
     print(id)
     msg = f'Hi {name}, thank you for contacting us. Your Booking was confirmed.'
-    from_id='redrondoofdeath@gmail.com'
+    from_id='traskgaming765@gmail.com'
     conn =smtplib.SMTP('smtp.gmail.com',587)  
     type(conn)  
     conn.ehlo()  
@@ -273,7 +273,7 @@ def send_mail_drappoint(name,id):
     text=msg
     msg = MIMEText(text, "plain")
     message.attach(msg)
-    conn.login(from_id,'bapeockmyuxkvnnq')  
+    conn.login(from_id,'wtrpodlctykjhqyj')  
     conn.sendmail(from_id,id,message.as_string())  
     conn.quit()
     return True
